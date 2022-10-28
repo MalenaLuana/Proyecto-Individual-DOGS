@@ -1,11 +1,20 @@
 import './App.css';
+import {BrowserRouter,Route} from 'react-router-dom'
+//-----------components-------------
+
+import Home from './components/Home'
+import Landing from './components/Landing';
+import Nav from './components/Nav';
+//----------------------------------
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Dogs</h1>
-    </div>
-  );
+  <BrowserRouter>
+      <Route exact path='/' component={Landing}/>
+      <Route exact path="/home" component={Home}/>
+     
+  </BrowserRouter>
+  )
 }
 
 export default App;

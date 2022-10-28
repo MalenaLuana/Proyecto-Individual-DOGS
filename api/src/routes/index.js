@@ -15,21 +15,21 @@ const router = Router();
 router.get('/dogs', async (req,res)=>{
     let name = req.query.name
     let data = await getAllDogs(name)
-   /* let filterData= await data.map(el=>{
+    let filterData= await data.map(el=>{
         return {
             id:el.id,
             img:el.img,
             name:el.name,
             temperament:el.temperament,
             weightMin:el.weightMin,
-            weightMax:el.weightMax
+            weightMax:el.weightMax,
+            createdInDB:el. createdInDB
         }
-    }) */
-
+    }) 
     try {
-        res.send(data)
+        res.status(200).send(filterData)
     } catch (error) {
-        res.send(error.message)
+        res.status(400).send(error.message)
     }
 })
 

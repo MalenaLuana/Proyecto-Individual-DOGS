@@ -9,7 +9,6 @@ const getTemperaments = async ()=>{
    
     const temperament = apiData.data.map(el=> el.temperament).join(", ").split(", ") 
 
-    console.log(temperament)
 
 
    temperament.map(el=> {
