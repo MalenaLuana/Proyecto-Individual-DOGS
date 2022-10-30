@@ -16,11 +16,12 @@ export default function Dogs(){
    const dogs = useSelector((state)=>state.dogs) 
 
    const temperaments = useSelector((state)=>state.temperaments)
+   
     useEffect(()=>{
-      
+        
          dispatch(actions.getDogs())
          .then(res=>res)
-
+        
          dispatch(actions.getTemperaments())
         
     },[dispatch])
@@ -41,7 +42,7 @@ export default function Dogs(){
          const lastDog = page * dogsxPage
          const firstDog = lastDog - dogsxPage
 
-         const actualDogs = dogs.slice(firstDog,lastDog)
+         let actualDogs = dogs.slice(firstDog,lastDog)
 
          const paginado = (numerPage)=>{
             setPage(numerPage)
@@ -59,7 +60,12 @@ export default function Dogs(){
       
         e.preventDefault()
         dispatch(actions.orderByName(e.target.value))
-        
+        console.log(e.target.value)
+    }
+    
+    const handleWeight = (e)=>{
+        e.preventDefault()
+        dispatch(actions.sortWeight(e.target.value))
     }
 
     const handleCreatedBy=(e)=>{
@@ -67,12 +73,21 @@ export default function Dogs(){
         dispatch(actions.createdBy(e.target.value))
         setPage(1)
     }
+
+    const handleClick=(e)=>{
+        e.preventDefault()
+        dispatch(actions.getDogs())
+    }
     //----------------------------
 
 
     return (
         <div>
             <Nav setPage={setPage}></Nav>
+            
+            <div>
+                <button onClick={e=>handleClick(e)}>Show all</button>
+            </div>
             <div>
                 <h3>Filter by temperaments</h3>
                 <select name="temperaments" onChange={(e)=> handleTemperaments(e)}>
@@ -86,16 +101,26 @@ export default function Dogs(){
                     }
                 </select>
              </div>
+
              <div>
                 <h3>Order by name:</h3>
                 <select name="alpha" onChange={(e)=>handleAlpha(e)}>
-            
+                 <option hidden value="">--select--</option>
                  <option value="asc">A-Z</option>
                  <option value="des">Z-A</option>
                 </select>
              </div>
 
           <div>
+
+            <div>
+                <h3>Order by Weight:</h3>
+                <select name="weight" onChange={e=> handleWeight(e)} >
+                    <option hidden value="">--select--</option>
+                    <option value="min-max">min-max</option>
+                    <option value="max-min">max-min</option>
+                </select>
+            </div>
           <h3>Created by:</h3>
               <select name="createdBy" onChange={(e)=> handleCreatedBy(e)} >
                   <option value='all'>Show all</option>

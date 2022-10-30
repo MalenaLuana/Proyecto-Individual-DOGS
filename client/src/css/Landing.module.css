@@ -1,0 +1,76 @@
+
+@font-face { font-family: Kathen; 
+    
+    src: url('./fonts/Kathen\ Font\ by\ Situjuh\ \(7NTypes\).otf')
+   ;
+  
+ }
+ 
+
+.container{
+    background-image: url('./images/landing.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+.content{
+    min-height: 100vh;
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;  
+   
+}
+
+.title{
+
+    font-family: 'Kathen';
+    color: black;
+    font-size: 90pt;
+    padding-top: 80px;
+    user-select:none
+     
+}
+.container h3{
+   
+font-family: "GeosansLight";
+letter-spacing: 2px;
+font-size: 30pt;
+position: absolute;
+top: 20rem;
+
+user-select:none
+}
+.btn{
+    font-family: 'GeosansLight';
+
+    margin-left: 2rem;
+    text-decoration: none;
+    background-color: #000000;
+    color: rgb(254, 242, 224);
+
+    font-family: 'Louis George Cafe';
+    font-weight: bold;
+    letter-spacing: 10px;
+    text-align: center;
+    border: none;
+    box-sizing: border-box;
+    font-size: 2rem;
+    border-radius: 32px;
+    padding: 10px 30px;
+ 
+    transition: .3s ease background-color;
+    cursor: pointer;
+}
+.btn:hover {
+    color: #fffbed;
+    background-color: #dd491c;
+    border:none
+   
+}

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import * as actions from '../redux/actions'
 import { useState } from "react";
 
-export default function Nav(setPage){
+export default function Nav({setPage}){
     const dispatch= useDispatch()
     const [name,setName]=useState('')
 
@@ -17,9 +17,8 @@ export default function Nav(setPage){
        const handleSubmit= (e)=>{
         e.preventDefault()
         dispatch(actions.getByName(name))
-        setTimeout(() => {
-            setPage(1)
-          }, 1000);
+       setPage(1)
+        
       }
 
       return (
@@ -27,11 +26,11 @@ export default function Nav(setPage){
         <div>
              <Link to='/home' >HOME</Link>
              <Link to='/create' >Create yout breed</Link>
-          <div>
+             <div>
           <input onChange={(e)=>handleImputChange(e)} type='text' placeholder='Search...'></input>
-  
+         
           <button  onClick={e=>handleSubmit(e)} type="submit" value='BUSCAR'>SEARCH</button>
-
+   
           </div>
 
         </div>
