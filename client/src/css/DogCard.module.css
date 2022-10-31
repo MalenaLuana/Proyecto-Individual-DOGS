@@ -1,7 +1,49 @@
 .container{
-    width: 500px;
-    background-color: rgb(100, 114, 109);
+    width: 600px;
+    height: 200px;
+    margin-bottom: 40px;
+
+    background-color: rgb(255, 255, 255);
+
+    display: flex;
+    font-family: 'Louis George Cafe';
+    color: black;
+    border: solid;
+    box-shadow: 10px 9px 0px -1px rgba(0, 0, 0);
 }
-img{
-    width: 400px;
+
+.imagen img{
+    height: 200px;
+  
+}
+.info{
+    width: 100%;
+    border-left: solid;
+}
+.name{
+    display: flex;
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-bottom: 5px; 
+    width: 100%;
+    color: black;
+    font-size: 14pt;
+    font-weight: bold;
+    letter-spacing: 1.54px;
+    border-bottom: solid;
+    border-width: 2px;
+  
+}
+
+.name:hover{
+    color:#fa7c55 ;
+    border-color: black;
+
+}
+
+.weight{
+    padding-left: 10px ;
+}
+.temperament{
+    padding-left: 10px
 }

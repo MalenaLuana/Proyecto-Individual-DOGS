@@ -6,19 +6,25 @@ export default function DogsCard ({name,image,weightMin,weightMax,temperament}){
 
     return (
       <div className={style.container}>
+          <div  className={style.imagen}>
+           <img src={image} alt='Dogs' /> 
           
-           <h1>{name}</h1>
-           <img src={image} alt='Dogs' />
-           <h3>{'Weight:' + weightMin+'-'+weightMax}</h3>
-           <h3>
+          </div>
+
+           <div className={style.info}>
+           <h1 className={style.name}>{name.toUpperCase()}</h1>
+            
+           <h3 className={style.weight}>{'Weight: ' + weightMin+'-'+weightMax+' kg'}</h3>
+         
+           <h3 className={style.temperament}>Temperament: 
             {
               temperament && temperament.map(e=>{
-                return e+' '
+                return '-'+e+' '
               })
             }
            </h3>
           
-       
+           </div>
       </div>  
     )
 }

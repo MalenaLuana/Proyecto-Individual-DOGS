@@ -8,13 +8,14 @@ const initialState = {
     dogs: [],
     dogDetail: [],
     temperaments: [],
-    default: []
+    default: [],
+    loading:true
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actions.GET_BY_NAME: return { ...state, dogs: action.payload }
-        case actions.DOG_DETAIL: return { ...state, dogDetail: action.payload }
+        case actions.DOG_DETAIL: return { ...state, dogDetail: action.payload,loading:false}
         case actions.SET_DETAILS: return { ...state, dogDetail: [] }
         /* todos los pokes */
         case actions.GET_DOGS:
@@ -22,7 +23,8 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 dogs: action.payload,
-                default: action.payload
+                default: action.payload,
+                loading:false
             }
         /* todos los temperamentos*/
         case actions.GET_TEMPS:

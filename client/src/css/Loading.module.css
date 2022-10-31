@@ -1,0 +1,10 @@
+.loading{
+    
+position: absolute;
+top: 500px;
+left: 800px;
+}
+
+.loadGif{
+    width: 200px;
+}

@@ -5,7 +5,7 @@ import Dogs from "./Dogs";
 export default function Home(){
 
     return (
-        <div>
+        <div >
               <Dogs></Dogs>
         </div>
     )

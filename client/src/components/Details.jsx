@@ -2,8 +2,9 @@ import React,{useEffect} from "react";
 import {useDispatch,useSelector} from 'react-redux'
 import * as actions from '../redux/actions'
 import { Link } from "react-router-dom";
-
+import style from '../css/Details.module.css'
 import DetailCard from "./DetailCard";
+import Loading from "./Loading"
 
 export default function Details(props){
 
@@ -11,7 +12,7 @@ export default function Details(props){
      const dispatch=useDispatch()
 
      const details= useSelector((state)=>state.dogDetail)
-
+     const loading = useSelector((state)=>state.loading)
 
      useEffect(()=>{
       
@@ -23,11 +24,18 @@ export default function Details(props){
     
 
     return (
-        <div>
+        <div className={style.container}>
+            <div className={style.head}>
             <Link to='/home'>
-            <button>BACK</button>
+            <button className={style.backBtn}>GO BACK</button>
             </Link>
-            {
+            </div>
+            <div className={style.decoration}></div>
+
+            <div className={style.cardCont}>
+            { loading? (
+					<Loading />
+				):
                 details && details.map(e=>{
                     return (
                         <DetailCard
@@ -43,6 +51,7 @@ export default function Details(props){
                     )
                 })
             }
+            </div>
         </div>
     )
 }

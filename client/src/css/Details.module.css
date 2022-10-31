@@ -1,0 +1,92 @@
+
+.container{
+    background-image: url('./images/back.jpg');
+    box-sizing: border-box;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.head{
+    background-color: black;
+    height: 8vh;
+    box-sizing: border-box;
+    padding: 22px;
+
+}
+.backBtn{
+    height: 30px;
+    
+    font-family: 'Louis George Cafe';
+    font-weight: bold;
+    box-sizing: border-box;
+    font-weight: bold;
+    background-color: white;
+    transition: .2s ease background-color;
+
+}
+.backBtn:hover{
+    background-color: #ff683a;
+    color:white;
+    cursor: pointer;
+}
+
+.decoration{
+    height: 36px;
+    background-color: rgb(0, 0, 0);
+    background-image: url('./images/decoration.jpg');
+    background-repeat: no-repeat;
+}
+
+.cardCont{
+    background-color: transparent;
+    height: 91vh;
+    display: flex;
+    justify-content: center;
+ 
+}
+
+.cards{
+    border-top: solid;
+    border-width: 7px;
+    background-color: rgba(216, 216, 216, 0.9);
+    color: rgb(0, 0, 0);
+    width: 40%;
+    height: 80vh;
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+
+
+    box-shadow:  20px 20px 60px #252525,
+             -20px -20px 60px #ffffff;
+   
+}
+.name{
+    font-family: 'Kathen';
+    margin: auto;
+    font-size: 30pt;
+    margin-top: 40px;
+
+}
+
+.image{
+    width: 50%;
+    margin: auto;
+    border: solid;
+    border-width: 5px;
+    background-color: white;
+    margin-top: -30px;
+}
+.info{
+   margin: auto;
+   font-family: "GeosansLight";
+   font-weight: bold;
+   font-size: x-large;
+   margin-top: -10px;
+}
+
+.temperament {
+    margin: auto;
+}

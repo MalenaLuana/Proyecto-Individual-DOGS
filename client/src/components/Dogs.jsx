@@ -3,10 +3,12 @@ import {useDispatch,useSelector} from 'react-redux'
 import * as actions from '../redux/actions'
 import { Link } from "react-router-dom";
 import Paginado from "./Paginado";
+import style from '../css/Dogs.module.css'
 
 
 import DogsCard from './DogsCard'
 import Nav from "./Nav";
+import Loading from "./Loading";
 
 //--------------
 
@@ -16,6 +18,7 @@ export default function Dogs(){
    const dogs = useSelector((state)=>state.dogs) 
 
    const temperaments = useSelector((state)=>state.temperaments)
+   const loading = useSelector((state)=>state.loading)
    
     useEffect(()=>{
         
@@ -66,6 +69,7 @@ export default function Dogs(){
     const handleWeight = (e)=>{
         e.preventDefault()
         dispatch(actions.sortWeight(e.target.value))
+         setPage(1)
     }
 
     const handleCreatedBy=(e)=>{
@@ -82,12 +86,15 @@ export default function Dogs(){
 
 
     return (
-        <div>
-            <Nav setPage={setPage}></Nav>
-            
-            <div>
-                <button onClick={e=>handleClick(e)}>Show all</button>
+        <div className={style.dogsMain}>
+            <Nav setPage={setPage} handleClick={handleClick}></Nav>
+            <div className={style.decoration}>
+                
             </div>
+            <div>
+                <button className={style.btnAll} onClick={e=>handleClick(e)}>Show all</button>
+            </div>
+            <div className={style.filterDiv}>
             <div>
                 <h3>Filter by temperaments</h3>
                 <select name="temperaments" onChange={(e)=> handleTemperaments(e)}>
@@ -121,6 +128,8 @@ export default function Dogs(){
                     <option value="max-min">max-min</option>
                 </select>
             </div>
+            </div>
+            <div>
           <h3>Created by:</h3>
               <select name="createdBy" onChange={(e)=> handleCreatedBy(e)} >
                   <option value='all'>Show all</option>
@@ -130,17 +139,22 @@ export default function Dogs(){
               </select>
           </div>
 
+          </div>
 
-
-          
+         <div className={style.paginado}>
           <Paginado dogs={dogs.length} dogsxPage={dogsxPage} paginado={paginado}></Paginado>
-          
-          
-          {
+         </div>
+         <div className={style.dogBlock}>
+          <div className={style.dogArea}>
+
+        
+          { loading? (
+					<Loading />
+				):
             actualDogs?.map(e=>{
                 return(
                     <Fragment>
-                        <Link to={"/home/"+e.id}>
+                        <Link className={style.linked}  to={"/home/"+e.id}>
                             <DogsCard key={e.id}
                             name={e.name}
                             image={e.img}
@@ -153,7 +167,7 @@ export default function Dogs(){
                 )
             })
           }
-           
-        </div>
+         </div>  
+        </div></div>
     )
 }
