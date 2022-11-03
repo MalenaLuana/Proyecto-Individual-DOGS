@@ -4,6 +4,7 @@ import * as actions from '../redux/actions'
 import { Link } from "react-router-dom";
 import Paginado from "./Paginado";
 import style from '../css/Dogs.module.css'
+import image from '../css/images/error.png' 
 
 
 import DogsCard from './DogsCard'
@@ -25,7 +26,9 @@ export default function Dogs(){
          dispatch(actions.getDogs())
          .then(res=>res)
         
-         dispatch(actions.getTemperaments())
+         if (temperaments.length === 0) {
+            dispatch(actions.getTemperaments())
+        }
         
     },[dispatch])
 
@@ -87,16 +90,25 @@ export default function Dogs(){
 
     return (
         <div className={style.dogsMain}>
+
+
             <Nav setPage={setPage} handleClick={handleClick}></Nav>
-            <div className={style.decoration}>
+
+
+            <div className={style.decoration}></div>
                 
-            </div>
-            <div>
-                <button className={style.btnAll} onClick={e=>handleClick(e)}>Show all</button>
-            </div>
+              
+           
+
+           <div className={style.container}>
+
             <div className={style.filterDiv}>
-            <div>
-                <h3>Filter by temperaments</h3>
+
+                <button className={style.btnAll} onClick={e=>handleClick(e)}>Show all</button>
+
+               <div>
+               
+                <h3>Filter by temperaments:</h3>
                 <select name="temperaments" onChange={(e)=> handleTemperaments(e)}>
                     <option value="all">Show all</option>
                     {
@@ -113,51 +125,56 @@ export default function Dogs(){
                 <h3>Order by name:</h3>
                 <select name="alpha" onChange={(e)=>handleAlpha(e)}>
                  <option hidden value="">--select--</option>
-                 <option value="asc">A-Z</option>
-                 <option value="des">Z-A</option>
+                 <option value="az">A-Z</option>
+                 <option value="za">Z-A</option>
                 </select>
              </div>
 
-          <div>
+             <div>
 
-            <div>
+         
                 <h3>Order by Weight:</h3>
                 <select name="weight" onChange={e=> handleWeight(e)} >
                     <option hidden value="">--select--</option>
                     <option value="min-max">min-max</option>
                     <option value="max-min">max-min</option>
                 </select>
+          
             </div>
-            </div>
+
+
             <div>
-          <h3>Created by:</h3>
-              <select name="createdBy" onChange={(e)=> handleCreatedBy(e)} >
+               <h3>Source:</h3>
+                 <select name="createdBy" onChange={(e)=> handleCreatedBy(e)} >
                   <option value='all'>Show all</option>
                   <option value='api'>API</option>
                   <option value='db'>DATA BASE</option>
 
               </select>
+            </div>
+          
+         
           </div>
-
-          </div>
-
-         <div className={style.paginado}>
-          <Paginado dogs={dogs.length} dogsxPage={dogsxPage} paginado={paginado}></Paginado>
-         </div>
-         <div className={style.dogBlock}>
-          <div className={style.dogArea}>
+      <div className={style.pags}>
+            <div className={style.paginado}>
+               <Paginado dogs={dogs.length} dogsxPage={dogsxPage} paginado={paginado}></Paginado>
+            </div>
+            <div className={style.dogBlock}>
+            <div className={style.dogArea}>
 
         
           { loading? (
 					<Loading />
-				):
-            actualDogs?.map(e=>{
+				)
+          :actualDogs<1 ?
+          <div className={style.error}><img src={image} alt="" /><p >Sorry, we don't have that dog breed </p></div>     
+          :actualDogs?.map(e=>{
                 return(
                     <Fragment>
                         <Link className={style.linked}  to={"/home/"+e.id}>
                             <DogsCard key={e.id}
                             name={e.name}
-                            image={e.img}
+                            image={e.image}
                             weightMin={e.weightMin}
                             weightMax={e.weightMax}
                             temperament={e.temperament}
@@ -168,6 +185,8 @@ export default function Dogs(){
             })
           }
          </div>  
-        </div></div>
+         </div></div>
+        </div>
+    </div>
     )
 }

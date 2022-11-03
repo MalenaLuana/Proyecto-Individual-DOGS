@@ -9,6 +9,8 @@ export const FILTER_BY_TEMP="FILTER_BY_TEMP"
 export const CREATED_BY = "CREATED_BY"
 export const GET_BY_NAME = "GET_BY_NAME"
 export const SORT_WEIGHT = "SORT_WEIGHT"
+export const POST_DOGS ="POST_DOGS"
+
 
 
 
@@ -98,4 +100,13 @@ export const sortWeight = payload => {
         type: "SORT_WEIGHT",
         payload
     }
+}
+
+
+
+//create
+
+export const postDogs = payload => dispatch =>{
+    return axios.post('http://localhost:3001/dogs',payload)
+    .then(res=>res)
 }

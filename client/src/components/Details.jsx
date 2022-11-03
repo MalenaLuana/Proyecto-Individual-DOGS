@@ -40,7 +40,7 @@ export default function Details(props){
                     return (
                         <DetailCard
                         name={e.name}
-                        img={e.img}
+                        img={e.image}
                         temperament={e.temperament}
                         weightMin={e.weightMin}
                         weightMax={e.weightMax}

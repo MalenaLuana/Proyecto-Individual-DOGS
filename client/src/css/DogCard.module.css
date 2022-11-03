@@ -2,9 +2,9 @@
     width: 600px;
     height: 200px;
     margin-bottom: 40px;
-
+    margin-left: 20px;
     background-color: rgb(255, 255, 255);
-
+    
     display: flex;
     font-family: 'Louis George Cafe';
     color: black;

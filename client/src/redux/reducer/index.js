@@ -9,42 +9,52 @@ const initialState = {
     dogDetail: [],
     temperaments: [],
     default: [],
-    loading:true
+    loading: true
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+
         case actions.GET_BY_NAME: return { ...state, dogs: action.payload }
-        case actions.DOG_DETAIL: return { ...state, dogDetail: action.payload,loading:false}
+        case actions.DOG_DETAIL: return { ...state, dogDetail: action.payload, loading: false }
         case actions.SET_DETAILS: return { ...state, dogDetail: [] }
-        /* todos los pokes */
+        case actions.POST_DOGS: return { ...state }
+
+        /*
+         *dogs data */
+
         case actions.GET_DOGS:
 
             return {
                 ...state,
                 dogs: action.payload,
                 default: action.payload,
-                loading:false
+                loading: false
             }
-        /* todos los temperamentos*/
+        /* 
+        *temperaments*/
+
         case actions.GET_TEMPS:
             return {
                 ...state,
                 temperaments: action.payload
             }
 
-        /*filtrar por temp */
+        /*
+        *temperament filter*/
+
         case actions.FILTER_BY_TEMP:
-            let data = [...state.default]
+          
+            let alldog = [...state.default]
             let filterDogs = []
 
-            if (action.payload === 'all') return { ...state, dogs: data }
+            if (action.payload === 'all') return { ...state, dogs:alldog }
 
-            for (var i = 0; i < data.length; i++) {
-                let temperaments = data[i].temperament
+            for (var i = 0; i < alldog.length; i++) {
+                let temperaments = alldog[i].temperament
 
                 if (temperaments.includes(action.payload)) {
-                    filterDogs.push(data[i])
+                    filterDogs.push(alldog[i])
                 }
             }
 
@@ -61,39 +71,33 @@ const reducer = (state = initialState, action) => {
             }
 
         case actions.ORDER_BY_NAME:
-            
-            let dogs=[...state.dogs]
-            let order = []
-   
-           if (action.payload==='all') return {...state, dogs:dogs}
-           if(action.payload === "asc"){
-          
-               order=dogs.sort((a,b)=>{
-                   if(a.name<b.name){
-                       return -1
-                     }
-                     if(a.name>b.name){
-                       return 1
-                     }
-                     return 0
-               })
-            return {...state,dogs:order}
 
-           } else {
-               order=dogs.sort((a,b)=>{
-                   if(a.name<b.name){
-                     return -1
-                   }
-                   if(a.name>b.name){
-                     return 1
-                   }
-                   return 0
-                 }).reverse()
-           
-   
-           return {...state,dogs:order}}
+            let dogs = [...state.dogs]
+            const sortByName=action.payload ==='za'?
 
-                
+            dogs.sort(function(a,b){
+                if(a.name > b.name){
+                    return -1;
+                }
+                if(b.name > a.name){
+                    return 1;
+                }
+                return 0
+            }): dogs.sort(function(a,b){
+                if(a.name > b.name){
+                    return 1;
+                }
+                if(b.name> a.name){
+                    return -1;
+                }
+                return 0;
+            })
+            return{
+                ...state,
+                dogs: sortByName
+            }
+
+
 
         case actions.CREATED_BY:
             let alldogs = [...state.default]
@@ -116,34 +120,35 @@ const reducer = (state = initialState, action) => {
             let breeds = [...state.dogs]
             let sort = []
 
-            
-            if(action.payload === "min-max"){
-           
-                sort= breeds.sort((a,b)=>{
-                    if(a.weightMax<b.weightMax){
+
+            if (action.payload === "min-max") {
+
+                sort = breeds.sort((a, b) => {
+                    if (a.weightMax < b.weightMax) {
                         return -1
-                      }
-                      if(a.weightMax>b.weightMax){
-                        return 1
-                      }
-                      return 0
-                })
-             return {...state,dogs:sort}
- 
-            } else {
-                sort= breeds.sort((a,b)=>{
-                    if(a.weightMax<b.weightMax){
-                      return -1
                     }
-                    if(a.weightMax>b.weightMax){
-                      return 1
+                    if (a.weightMax > b.weightMax) {
+                        return 1
                     }
                     return 0
-                  }).reverse()
-            
-    
-            return {...state,dogs:sort}}
-            
+                })
+                return { ...state, dogs: sort }
+
+            } else {
+                sort = breeds.sort((a, b) => {
+                    if (a.weightMax < b.weightMax) {
+                        return -1
+                    }
+                    if (a.weightMax > b.weightMax) {
+                        return 1
+                    }
+                    return 0
+                }).reverse()
+
+
+                return { ...state, dogs: sort }
+            }
+
 
         default:
             return state

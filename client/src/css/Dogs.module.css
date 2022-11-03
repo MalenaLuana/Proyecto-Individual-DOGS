@@ -1,40 +1,152 @@
-
-.filterDiv{
-
-    display:flex;
-    justify-content: space-around;
-    box-sizing: border-box;
+.dogsMain{
+height: 100vh;
 }
-.decoration{
+.decoration {
     height: 36px;
     background-color: rgb(0, 0, 0);
     background-image: url('./images/decoration.jpg');
     background-repeat: no-repeat;
 }
-.paginado{
-   
+
+.pags {
+    width: 90%;
+}
+
+.paginado {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
 }
-.dogBlock{
+
+.dogBlock {
     display: flex;
-    padding: 20px;
- 
-    width: 95%;
-    margin: auto;
-    justify-content: centers;
+    padding: 10px;
+    justify-content: center;
 
 }
 
-.dogArea{
-   
+.dogArea {
+
     width: 100%;
     padding-left: 9%;
     display: grid;
     grid-template-columns: auto auto;
 }
-.linked{
+
+.linked {
     text-decoration: none;
 
 }
 
+.error {
+    border: dotted;
+
+    position: absolute;
+    top: 470px;
+    left: 800px;
+    width: 20%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.error p {
+    margin-top: 80px;
+    font-family: 'Louis George Cafe';
+    font-weight: bolder;
+    font-size: larger;
+}
+
+
+.checkbox {
+    display: none;
+}
+
+.container {
+    display: flex;
+
+}
+
+
+
+.filterDiv {
+    background-image: url('../css/images/filterDiv.jpg');
+    font-family: 'Louis George Cafe';
+    width: 100%;
+    max-width: 250px;
+    border-right: solid;
+    border-width: 1px;
+    border-color: rgb(199, 199, 199);
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding-top: 200px;
+    padding-left: 1.5rem;
+    background-color: rgb(250, 249, 248);
+}
+
+.filterDiv select {
+    background-color: white;
+    border: thin solid rgb(0, 0, 0);
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+    /*   ++--   */
+    
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image:
+  linear-gradient(45deg, transparent 50%, gray 50%),
+  linear-gradient(135deg, gray 50%, transparent 50%),
+  linear-gradient(to right, #ccc, #ccc);
+background-position:
+  calc(100% - 20px) calc(1em + 2px),
+  calc(100% - 15px) calc(1em + 2px),
+  calc(100% - 2.5em) 0.5em;
+background-size:
+  5px 5px,
+  5px 5px,
+  1px 1.5em;
+background-repeat: no-repeat;
+}
+
+.filterDiv select:focus{
+    background-image:
+    linear-gradient(45deg, rgb(243, 139, 42) 50%, transparent 50%),
+    linear-gradient(135deg, transparent 50%, rgb(243, 139, 42) 50%),
+    linear-gradient(to right, #ccc, #ccc);
+  background-position:
+    calc(100% - 15px) 1em,
+    calc(100% - 20px) 1em,
+    calc(100% - 2.5em) 0.5em;
+  background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+  background-repeat: no-repeat;
+  border-color:rgb(243, 139, 42) ;
+  outline: 0;
+}
+
+.btnAll {
+    height: 38px;
+
+    border-width: 1px;
+    font-family: 'Louis George Cafe';
+    box-sizing: border-box;
+    font-weight: bold;
+    background-color: white;
+
+}
+
+.btnAll:hover {
+    background-color: #dddbdbc2;
+   
+    cursor: pointer;
+}
