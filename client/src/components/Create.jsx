@@ -4,9 +4,10 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as actions from '../redux/actions'
 
-import Nav from "./Nav";
 
 export default function Create() {
+
+
 
     const dispatch = useDispatch()
     const temperaments = useSelector((state) => state.temperaments)
@@ -41,8 +42,56 @@ export default function Create() {
         }
     }, [])
 
+/*----VALIDACIONES----*/
 
+    const [error,serError] = useState(true)
+
+    const HandleError = (input)=>{
+    let keep = {}
+
+            //-----name-------
+    let regexName = new RegExp('^[a-zA-Z ]{2,30}$')
+
+    if(input.name.length > 0 && !regexName.test(input.name)) keep.name= 'The name contains invalid characters.'
+ 
+           //-----height-------
+    if(input.heightMin.length > 0)  {
+     if  (!(input.heightMin*1 > 0 && input.heightMin*1 < 201 && Number.isInteger(input.heightMin*1)))  keep.heightMin= 'The height value cannot be negative or zero,';
+     } 
+     if (input.heightMin.length > 0 && input.heightMax.length > 0 ){
+        if(!(input.heightMin*1 < input.heightMax*1 )) keep.heightCompare = 'The minimum value cannot be greater or equal than the maximum'
+     }
+    if (input.heightMax.length >0){
+        if(!(input.heightMax*1>0 && input.heightMax*1 < 201 && Number.isInteger(input.heightMax*1)))  keep.heightMax= 'The height value cannot be negative or zero,'
+    }
+
+         //---weight-----------
+    if(input.weightMin.length > 0)  {
+       if  (!(input.weightMin*1 > 0 && input.weightMin*1 < 101 && Number.isInteger(input.weightMin*1)))  keep.weightMin= 'Try a range betwenn 1kg and 100 kg';
+       } 
+       if (input.weightMin.length > 0 && input.weightMax.length > 0 ){
+          if(!(input.weightMin*1 < input.weightMax*1 )) keep.weightCompare = 'The minimum value cannot be greater or equal than the maximum'
+       }
+      if (input.weightMax.length >0){
+          if(!(input.weightMax*1>0 && input.weightMax*1 < 101 && Number.isInteger(input.weightMax*1)))  keep.weightMax= 'Try a range betwenn 1 kg and 100 kg'
+      }
+        //----life span--------
+
+        if(input.life_span.length > 0)  {
+            if  (!(input.life_span*1 > 0 && input.life_span*1 < 201 && Number.isInteger(input.life_span*1)))  keep.life_span= 'The life span value cannot be negative or zero,';
+            } 
+
+     return keep
+    }
+
+
+
+
+/*----Manejo de cambios-----*/
     const handleChange = (e) => {
+
+        serError(HandleError({...input,[e.target.name]:e.target.value}))
+
         setInput({
             ...input,
             [e.target.name]: e.target.value
@@ -72,9 +121,13 @@ export default function Create() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(input)
+
+        if(input.name === '' || input.life_span === '' || input.heightMin==='' || input.heightMax ==='' || input.weightMax===''||input.weightMin===''|| input.temperament.length === 0 || input.image ===''){
+            alert('All the fields must be completed!')
+        }else if(error.name || error.life_span|| error.heightMin|| error.heightMax ||error.heightCompare ||error.weightCompare || error.weightMin  || error.weightMax || error.image || error.life_span){ //chequeo que no haya errores
+            alert('Please review the form!')}
+
         dispatch(actions.postDogs(input))
-        alert('We have a new dog breed!')
         setInput({
             name: "",
             image: "",
@@ -86,7 +139,12 @@ export default function Create() {
             temperament: []
 
         })
+        alert('We have a new dog breed!')
     }
+
+
+
+
 
     return (
         <div>
@@ -96,6 +154,7 @@ export default function Create() {
             <form onSubmit={e => handleSubmit(e)}>
                 <label>NAME:</label>
                 <input type="text" name="name" value={input.name} onChange={(e) => handleChange(e)} />
+                <span> {error.name && (<label>{error.name}</label>)} <br /></span> 
 
                 <label>IMAGE:</label>
                 <input type="text" name="image" value={input.image} onChange={(e) => handleChange(e)} />
@@ -103,13 +162,20 @@ export default function Create() {
                 <label>WEIGHT:</label>
                 <input type="text" name="weightMin" value={input.weightMin} onChange={(e) => handleChange(e)} />
                 <input type="text" name="weightMax" value={input.weightMax} onChange={(e) => handleChange(e)} />
+                <span> {error.weightMin && (<label>{error.weightMin}</label>)} </span> 
+                <span> {error.weightMax && (<label>{error.weightMax}</label>)} </span> 
+                <span> {error.weightCompare  && (<label>{error.weightCompare}</label>)} </span> 
 
                 <label>HEIGHT:</label>
                 <input type="text" name="heightMin" value={input.heightMin} onChange={(e) => handleChange(e)} />
                 <input type="text" name="heightMax" value={input.heightMax} onChange={(e) => handleChange(e)} />
+                <span> {error.heightMin && (<label>{error.heightMin}</label>)} </span> 
+                <span> {error.heightMax && (<label>{error.heightMax}</label>)} </span> 
+                <span> {error.heightCompare  && (<label>{error.heightCompare }</label>)} </span> 
 
                 <label>LIFE SPAN:</label>
-                <input type="text" name="life_span" value={input.life_span} onChange={(e) => handleChange(e)} />
+                <input type="text" name="life_span" value={input.life_span} onChange={(e) => handleChange(e)} /><p>years</p>
+                <span> {error.life_span && (<label>{error.life_span}</label>)} </span> 
 
                 <div>
                     <select name="temperaments" value={input.temperament} onChange={e => handleSelect(e)} >

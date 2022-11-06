@@ -33,10 +33,11 @@ export default function Nav({setPage,handleClick}){
              <Link to='/create' className={style.home}><span>CREATE YOUR BREED</span></Link>
             </div>
            <div className={style.searchBar}>
+          <form  onSubmit={e=>handleSubmit(e)}  >
           <input className={style.searchInput} onChange={(e)=>handleImputChange(e)} type='text' placeholder='Search...'></input>
          
-          <button className={style.searchBtn}  onClick={e=>handleSubmit(e)} type="submit" value='BUSCAR'>SEARCH</button>
-   
+          <button className={style.searchBtn}  type="submit" value='BUSCAR'>SEARCH</button>
+         </form>
           </div>
 
         </div>
