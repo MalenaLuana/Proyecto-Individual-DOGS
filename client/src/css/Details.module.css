@@ -1,4 +1,8 @@
 
+@font-face {
+    font-family: Louis George Cafea;
+    src: url('./fonts/Louis\ George\ Cafe.ttf')
+}
 .container{
     height: 100vh;
    

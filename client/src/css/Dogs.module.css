@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@300&display=swap');
+
 .dogsMain{
 height: 100vh;
 }
@@ -52,7 +54,7 @@ height: 100vh;
 
 .error p {
     margin-top: 80px;
-    font-family: 'Louis George Cafe';
+    font-family: 'Krub', sans-serif;
     font-weight: bolder;
     font-size: larger;
 }
@@ -71,7 +73,7 @@ height: 100vh;
 
 .filterDiv {
     background-image: url('../css/images/filterDiv.jpg');
-    font-family: 'Louis George Cafe';
+    font-family: 'Krub', sans-serif;
     width: 100%;
     max-width: 250px;
     border-right: solid;
@@ -138,7 +140,7 @@ background-repeat: no-repeat;
     height: 38px;
 
     border-width: 1px;
-    font-family: 'Louis George Cafe';
+    font-family: 'Krub', sans-serif;
     box-sizing: border-box;
     font-weight: bold;
     background-color: white;

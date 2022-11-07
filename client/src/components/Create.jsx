@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as actions from '../redux/actions'
+import style from '../css/Create.module.css'
 
 
 export default function Create() {
@@ -56,18 +57,18 @@ export default function Create() {
  
            //-----height-------
     if(input.heightMin.length > 0)  {
-     if  (!(input.heightMin*1 > 0 && input.heightMin*1 < 201 && Number.isInteger(input.heightMin*1)))  keep.heightMin= 'The height value cannot be negative or zero,';
+     if  (!(input.heightMin*1 > 0 && input.heightMin*1 < 201 && Number.isInteger(input.heightMin*1)))  keep.heightMin= 'The height value cannot be negative or zero';
      } 
      if (input.heightMin.length > 0 && input.heightMax.length > 0 ){
         if(!(input.heightMin*1 < input.heightMax*1 )) keep.heightCompare = 'The minimum value cannot be greater or equal than the maximum'
      }
     if (input.heightMax.length >0){
-        if(!(input.heightMax*1>0 && input.heightMax*1 < 201 && Number.isInteger(input.heightMax*1)))  keep.heightMax= 'The height value cannot be negative or zero,'
+        if(!(input.heightMax*1>0 && input.heightMax*1 < 201 && Number.isInteger(input.heightMax*1)))  keep.heightMax= 'The height value cannot be negative or zero'
     }
-
+    
          //---weight-----------
     if(input.weightMin.length > 0)  {
-       if  (!(input.weightMin*1 > 0 && input.weightMin*1 < 101 && Number.isInteger(input.weightMin*1)))  keep.weightMin= 'Try a range betwenn 1kg and 100 kg';
+       if  (!(input.weightMin*1 > 0 && input.weightMin*1 < 101 && Number.isInteger(input.weightMin*1)))  keep.weightMin= 'Try a range betwen 1kg and 100 kg';
        } 
        if (input.weightMin.length > 0 && input.weightMax.length > 0 ){
           if(!(input.weightMin*1 < input.weightMax*1 )) keep.weightCompare = 'The minimum value cannot be greater or equal than the maximum'
@@ -78,7 +79,7 @@ export default function Create() {
         //----life span--------
 
         if(input.life_span.length > 0)  {
-            if  (!(input.life_span*1 > 0 && input.life_span*1 < 201 && Number.isInteger(input.life_span*1)))  keep.life_span= 'The life span value cannot be negative or zero,';
+            if  (!(input.life_span*1 > 0 && input.life_span*1 < 201 && Number.isInteger(input.life_span*1)))  keep.life_span= 'The life span value cannot be negative or zero';
             } 
 
      return keep
@@ -147,37 +148,59 @@ export default function Create() {
 
 
     return (
-        <div>
+        <div className={style.container}>
+            <div className={style.head}>
             <Link to='/home'>
                 <button>GO BACK</button>
             </Link>
-            <form onSubmit={e => handleSubmit(e)}>
+            </div>
+          
+            <div className={style.formMain}>
+            <form className={style.form} onSubmit={e => handleSubmit(e)}>
+                <div className={style.nameImg}>
                 <label>NAME:</label>
                 <input type="text" name="name" value={input.name} onChange={(e) => handleChange(e)} />
-                <span> {error.name && (<label>{error.name}</label>)} <br /></span> 
-
+              
                 <label>IMAGE:</label>
                 <input type="text" name="image" value={input.image} onChange={(e) => handleChange(e)} />
-
+                </div>
+                <span className={style.nameErr}> {error.name && (<label>{error.name}</label>)} <br /></span>
+               
+                <div className={style.weight}>
                 <label>WEIGHT:</label>
-                <input type="text" name="weightMin" value={input.weightMin} onChange={(e) => handleChange(e)} />
-                <input type="text" name="weightMax" value={input.weightMax} onChange={(e) => handleChange(e)} />
-                <span> {error.weightMin && (<label>{error.weightMin}</label>)} </span> 
-                <span> {error.weightMax && (<label>{error.weightMax}</label>)} </span> 
-                <span> {error.weightCompare  && (<label>{error.weightCompare}</label>)} </span> 
-
+                <input placeholder="MIN" className={style.uno} type="text" name="weightMin" value={input.weightMin} onChange={(e) => handleChange(e)} />
+               <p>-</p>
+                <input placeholder="MAX" className={style.dos} type="text" name="weightMax" value={input.weightMax} onChange={(e) => handleChange(e)} />
+                <div className={style.weightErr}>
+               
+                </div> 
+                </div> 
+                <div className={style.weightErr}>
+                <span> {error.weightMin && (<label>{error.weightMin}</label>)} <br /></span> 
+                <span> {error.weightMax && (<label>{error.weightMax}</label>)}<br /> </span> 
+                <span> {error.weightCompare  && (<label>{error.weightCompare}</label>)}<br /></span> 
+               </div>
+                 <div className={style.height}>
                 <label>HEIGHT:</label>
-                <input type="text" name="heightMin" value={input.heightMin} onChange={(e) => handleChange(e)} />
-                <input type="text" name="heightMax" value={input.heightMax} onChange={(e) => handleChange(e)} />
-                <span> {error.heightMin && (<label>{error.heightMin}</label>)} </span> 
-                <span> {error.heightMax && (<label>{error.heightMax}</label>)} </span> 
-                <span> {error.heightCompare  && (<label>{error.heightCompare }</label>)} </span> 
+                <input placeholder="MIN" className={style.uno} type="text" name="heightMin" value={input.heightMin} onChange={(e) => handleChange(e)} />
+                 <p>-</p>
+                <input placeholder="MAX" className={style.dos} type="text" name="heightMax" value={input.heightMax} onChange={(e) => handleChange(e)} />
+                <div className={style.heightErr}>
+                
+                </div> </div>
 
+                <div className={style.heightErr}>
+                <span> {error.heightMin && (<label>{error.heightMin}</label>)} <br /></span> 
+                <span > {error.heightMax && (<label>{error.heightMax}</label>)} </span> 
+                <span > {error.heightCompare  && (<label>{error.heightCompare }</label>)} </span> 
+                </div>
+                <div className={style.life}>
                 <label>LIFE SPAN:</label>
                 <input type="text" name="life_span" value={input.life_span} onChange={(e) => handleChange(e)} /><p>years</p>
-                <span> {error.life_span && (<label>{error.life_span}</label>)} </span> 
-
-                <div>
+                
+                </div>
+                <span className={style.nameErr}> {error.life_span && (<label>{error.life_span}</label>)}<br /> </span>
+                <div className={style.temp}>
                     <select name="temperaments" value={input.temperament} onChange={e => handleSelect(e)} >
                         <option value="select">Select...</option>
                         {
@@ -190,7 +213,7 @@ export default function Create() {
                     </select>
                 </div>
 
-                <div>   {input.temperament.map(tempMapeo => {
+                <div className={style.tempBox}>   {input.temperament.map(tempMapeo => {
                     return (
                         <>
                             <span>{tempMapeo}</span><button type="button" value={tempMapeo} onClick={(e) => handleClean(e)}>x</button> <br />
@@ -206,6 +229,7 @@ export default function Create() {
 
 
             </form>
+            </div>
         </div>
     )
 

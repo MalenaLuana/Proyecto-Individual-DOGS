@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@300&display=swap');
 .container{
     background-color: black;
     color: white;
@@ -19,7 +20,7 @@
 
 .links{
     
-    width: 15%;
+    width: 17%;
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
@@ -29,12 +30,13 @@
 }
 .home{
     color:white;
-    font-family: 'GeosansLight';
+    font-family: 'Krub', sans-serif;
     font-weight: bold;
-    font-size: 15pt;
+    font-size: 12pt;
     text-decoration: none;
     cursor: pointer;
     letter-spacing: 1.5px;
+    margin-right: 5px;
 }
 
 .home:hover {
@@ -50,7 +52,7 @@
 
 .searchInput{
     height: 36px ;
-    font-family: 'Louis George Cafe';
+    font-family: 'Krub', sans-serif;
     font-size: 10pt;
     letter-spacing: 1px;
     font-weight: bold;
@@ -59,9 +61,10 @@
 }
 .searchBtn{
     height: 38px;
-    font-family: 'Louis George Cafe';
+    font-family: 'Krub', sans-serif;   
+    font-size: 8=9pt; 
     box-sizing: border-box;
-    font-weight: bold;
+    
     background-color: white;
     transition: .2s ease background-color;
 }

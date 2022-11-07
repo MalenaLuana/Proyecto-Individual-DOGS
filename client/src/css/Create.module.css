@@ -1,0 +1,135 @@
+.container {
+    height: 100vh;
+    font-family: 'Krub', sans-serif;
+}
+
+.formMain {
+    background-color: rgb(0, 0, 0);
+    height: 80vh;
+    width: 60%;
+    margin: 30px auto;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.form {
+    background-color: rgb(17, 19, 18);
+    padding: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.nameImg {
+   
+    display: flex;
+    justify-content: space-around;
+    height: 30px;
+
+}
+
+.nameErr {
+ 
+    margin-top: 10px;
+    margin-left: 50px;
+    font-size: 11pt;
+}
+
+.weight {
+
+    display: flex;
+    margin-top: 10px;
+    margin-left: 45px;
+    height: 30px;
+}
+
+.weight .uno {
+    margin-left: 6.2rem;
+}
+
+.weight .dos {
+    margin-left: 1rem;
+}
+
+.weight p {
+
+    font-family: 'Krub', sans-serif;
+    font-size: 18pt;
+    margin-top: 1px;
+    margin-left: 20px;
+}
+
+.height {
+
+   
+    display: flex;
+    margin-top: 40px;
+    margin-left: 45px;
+    height: 30px;
+
+}
+
+.height .uno {
+    margin-left: 6.2rem;
+}
+
+.height .dos {
+    margin-left: 1rem;
+}
+
+.height p {
+
+    font-family: 'Krub', sans-serif;
+    font-size: 18pt;
+    margin-top: 1px;
+    margin-left: 20px;
+}
+
+.life{
+  
+    display: flex;
+    height: 30px;
+    margin-top: 30px;
+    margin-left: 45px;
+}
+.life input {
+    margin-left: 5rem;
+}
+.life p {
+    font-weight: lighter;
+  margin-top: 2px;
+  margin-left: 5px;
+}
+
+.weightErr{
+    box-sizing: border-box;
+    height: 30px;
+
+   
+    margin-left: 50px;
+    font-size: 11pt;
+    position: relative;
+}
+.weightErr span {
+    background-color: rgb(17, 19, 18) ;
+    color: rgb(255, 110, 43);
+    position: absolute;
+    top: 5px;
+}
+
+.heightErr{
+    box-sizing: border-box;
+    height: 30px;
+    margin-left: 50px;
+    font-size: 11pt;
+    position: relative;
+}
+
+.heightErr span{
+    background-color: rgb(17, 19, 18) ;
+    color: rgb(255, 110, 43);
+    position: absolute;
+    top: 5px;
+}
