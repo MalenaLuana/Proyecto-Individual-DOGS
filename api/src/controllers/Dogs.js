@@ -19,7 +19,7 @@ const getApiDogs= async ()=>{
         return {
             id:el.id,
             name:el.name,
-            img:el.image.url,
+            image:el.image.url,
             temperament:temperament,
             weightMin: Number(weightMin),
 			weightMax: Number(weightMax),
@@ -53,12 +53,26 @@ const getDBDogs = async()=>{
         }
     })
     
-    const dogsData = dbDogs.map(d=>d.dataValues)
-    const allDbDogs = dogsData.map(d=>{
-        d.atribute = d.atributes.map(t=>t.dataValues.name)
-       return d
+    const dogsData = await dbDogs.map(d=>d.dataValues)
+    const allDbDogs = await dogsData.map(el=>{
+        console.log(el.temperaments)
+        return {
+            id:el.id,
+            name:el.name,
+            image:el.image,
+            weightMin:el.weightMin,
+            weightMax:el.weightMax,
+            heightMin:el.heightMin,
+            heightMax:el.heightMax,
+            life_span:el.life_span,
+            temperament:el.temperaments?.map(m => m.name),
+            createdInDB:el.createdInDB
+        }
     })
-
+       
+       
+    
+    console.log(allDbDogs)
     return await allDbDogs
 }
 
@@ -95,7 +109,7 @@ const createDog = async ({name,image, heightMin,heightMax,weightMin,weightMax,li
     })
 
     let temperamentTable = await Temperaments.findAll({ where: { name: temperament } });
-
+    console.log(temperamentTable)
     newDog.addTemperaments(temperamentTable)
     
 }
