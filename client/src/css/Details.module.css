@@ -15,7 +15,7 @@
 }
 
 .backBtn{
-    height: 30px;
+    height: 20px;
     font-family: 'Louis George Cafe';
     font-weight: bold;
     box-sizing: border-box;
@@ -37,3 +37,66 @@
     background-repeat: no-repeat;
 }
 
+.cards{
+
+    height: 80vh;
+    display: flex;
+
+    
+    margin:10px auto ;
+    width: 80%;
+    box-shadow: 10px 9px 0px -1px rgba(0, 0, 0);
+}
+
+.left{
+    color: white;
+    background-color: black;
+    width: 700px;
+  
+}
+.name{
+
+display: flex;
+justify-content: center;
+box-sizing: border-box;
+padding-top: 20px;
+
+}
+.name h3 {
+    font-family: 'Kathen';
+    font-size: 20pt;
+}
+.image{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    
+}
+.left img{
+    border-radius: 8px;
+   height:300px ;
+
+
+}
+
+.right{
+   border: solid;
+   box-sizing: border-box;
+   padding: 50px;
+   width: 500px;
+}
+.info{
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+
+}
+
+.info h2 {
+    font-size: 15pt;
+}
+.info h3 {
+    color: #ff683a;
+    margin-left: 10px;
+    font-size: 15pt;
+    margin-top: 18px;
+}

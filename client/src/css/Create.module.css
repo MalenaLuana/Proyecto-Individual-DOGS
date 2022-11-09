@@ -1,20 +1,29 @@
 .container {
     height: 100vh;
-    font-family: 'Krub', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url('./images/back.jpg');
+    min-height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
 }
 
 .formMain {
-    background-color: rgb(0, 0, 0);
+
     height: 80vh;
     width: 60%;
-    margin: 30px auto;
-    color: white;
-    font-weight: bold;
+    margin: 20px auto;
+  
+
     letter-spacing: 1px;
 }
 
 .form {
-    background-color: rgb(17, 19, 18);
+    background-color:#ffffffef;
+    border: solid;
+    box-shadow: 10px 9px 0px -1px rgba(0, 0, 0);
     padding: 40px;
     height: 100%;
     display: flex;
@@ -23,30 +32,54 @@
 }
 
 .nameImg {
-   
+    font-weight: bold;
     display: flex;
-    justify-content: space-around;
-    height: 30px;
+    margin-left: 45px;
+    height: 20px;
+
 
 }
 
+.nameImg input {
+    border: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    height: 20px;
+    margin-left: 10px;
+    margin-top: -4px;
+}
+
+.image {
+    margin-left: 2.8rem;
+}
+
 .nameErr {
- 
+
     margin-top: 10px;
     margin-left: 50px;
-    font-size: 11pt;
+    font-size: 10pt;
+    color: rgb(255, 92, 16);
 }
 
 .weight {
 
     display: flex;
-    margin-top: 10px;
+    font-weight: bold;
+    margin-top: 30px;
     margin-left: 45px;
     height: 30px;
 }
 
+.weight input {
+    border: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    margin-top: -5px;
+    height: 20px;
+}
+
 .weight .uno {
-    margin-left: 6.2rem;
+    margin-left: 1rem;
 }
 
 .weight .dos {
@@ -55,24 +88,37 @@
 
 .weight p {
 
-    font-family: 'Krub', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 18pt;
-    margin-top: 1px;
+    margin-top: -8px;
     margin-left: 20px;
+}
+.weight h4 {
+    font-weight: light;
+    color: gray;
+    margin-top: -2px;
+    margin-left: 10px;  
 }
 
 .height {
+    font-weight: bold;
 
-   
     display: flex;
-    margin-top: 40px;
+    margin-top: 10px;
     margin-left: 45px;
     height: 30px;
 
 }
 
+.height input {
+    border: solid;
+    height: 20px;
+    border-width: 2px;
+    border-radius: 4px;
+}
+
 .height .uno {
-    margin-left: 6.2rem;
+    margin-left: 1.2rem;
 }
 
 .height .dos {
@@ -81,45 +127,59 @@
 
 .height p {
 
-    font-family: 'Krub', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 18pt;
     margin-top: 1px;
     margin-left: 20px;
 }
+.height h4 {
+    font-weight: light;
+    color: gray;
+    margin-top: 2px;
+    margin-left: 10px;  
+}
 
-.life{
-  
+.life {
+    font-weight: bold;
     display: flex;
     height: 30px;
-    margin-top: 30px;
+    margin-top: 10px;
     margin-left: 45px;
 }
+
 .life input {
     margin-left: 5rem;
+    border: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    height: 20px;
 }
+
 .life p {
-    font-weight: lighter;
-  margin-top: 2px;
-  margin-left: 5px;
+    font-weight: light;
+    color: gray;
+    margin-top: 2px;
+    margin-left: 10px;
 }
 
-.weightErr{
+.weightErr {
     box-sizing: border-box;
     height: 30px;
 
-   
+
     margin-left: 50px;
     font-size: 11pt;
     position: relative;
 }
+
 .weightErr span {
-    background-color: rgb(17, 19, 18) ;
-    color: rgb(255, 110, 43);
+    background-color: white;
+    color: rgb(255, 92, 16);
     position: absolute;
     top: 5px;
 }
 
-.heightErr{
+.heightErr {
     box-sizing: border-box;
     height: 30px;
     margin-left: 50px;
@@ -127,9 +187,83 @@
     position: relative;
 }
 
-.heightErr span{
-    background-color: rgb(17, 19, 18) ;
+.heightErr span {
+    background-color: white;
     color: rgb(255, 110, 43);
     position: absolute;
     top: 5px;
+}
+
+.btn {
+    height: 38px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight:bold;
+    box-sizing: border-box;
+    background-color: white;
+    position: absolute;
+    left: 50px;
+    top: 20px;
+    transition: .2s ease background-color;
+}
+
+.btn:hover{
+    background-color: #fa7c55;
+    border-color: #fa7c55 ;
+    color:white;
+    cursor: pointer;
+    }
+.tempDiv{
+    
+    display: flex;
+    margin-left: 45px;
+    
+}
+.temp select{
+    border:solid ;
+    border-width: 2px;
+    border-radius: 4px;
+    height: 30px;
+    width: 200px;
+    
+}
+.tempBox{
+    background-color: rgb(243, 243, 243);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    border: solid;
+    padding: 5px;
+    border-width: 2px;
+    border-radius:4px ;
+    height: 80px;
+    width: 60%;
+    margin-left: 10px;
+}
+.tempBox button {
+    background-color: black;
+    color: white;
+   height: 25px;
+   width: 25px;
+   border: solid;
+   border-radius: 4px;
+   border-width: 1px;
+   margin-left: 5px;
+   margin-right: 5px;
+}
+
+.createBtn {
+    background-color: #000000;
+    color: white;
+    margin-top: 40px;
+    margin: auto;
+    width: 200px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15pt;
+    
+
+}
+
+.createBtn:hover {
+    background-color: #fa7c55;
+    border-color: #fa7c55;
 }

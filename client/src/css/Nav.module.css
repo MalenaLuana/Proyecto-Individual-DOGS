@@ -12,31 +12,31 @@
 .container h2 {
     user-select:none;
     font-family:  'Kathen';
-    font-size: 30pt;
+    font-size: 25pt;
     position: absolute;
-    top: -20px;
+    top: -25px;
     left: 20px;
 }
 
 .links{
     
-    width: 17%;
+    width: 19%;
     display: flex;
     justify-content: space-around;
     box-sizing: border-box;
     padding-top: 3vh;
     position: absolute;
-    left: 65%;
+    left: 63%;
 }
 .home{
     color:white;
-    font-family: 'Krub', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 12pt;
+    font-size: 10pt;
     text-decoration: none;
     cursor: pointer;
     letter-spacing: 1.5px;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .home:hover {
@@ -46,14 +46,14 @@
 .searchBar{
    position:absolute ;
    right:30px;
-   top: 2vh;
+   top: 1vh;
    
 }
 
 .searchInput{
     height: 36px ;
-    font-family: 'Krub', sans-serif;
-    font-size: 10pt;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
     letter-spacing: 1px;
     font-weight: bold;
     box-sizing: border-box;
@@ -61,8 +61,9 @@
 }
 .searchBtn{
     height: 38px;
-    font-family: 'Krub', sans-serif;   
-    font-size: 8=9pt; 
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7pt;
+    font-weight: 400; 
     box-sizing: border-box;
     
     background-color: white;

@@ -8,24 +8,29 @@ return (
     <div className={style.cards}>
         
         <div className={style.left}> 
-         <div className={style.image} >
-         <h3 className={style.name}>{'- '+name+' -'}</h3>
-      
+        <div className={style.name}>
+         <h3 >{name}</h3>
+        </div>
+        <div className={style.image}>
         <img src={img} alt={name} />
        </div>
         </div>
         <div className={style.right}>
         <div className={style.info}>
-        <h3>{'WEIGHT: '+weightMin+'-'+weightMax+' Kg'}</h3>
+        <h2>WEIGHT:</h2>
+        <h3>{weightMin+'-'+weightMax+' Kg'}</h3>
         </div>
         <div className={style.info}>
-        <h3 >{'HEIGHT: '+heightMin+'-'+heightMax+' Cm'}</h3>
+        <h2>HEIGHT:</h2>
+        <h3 >{heightMin+'-'+heightMax+' Cm'}</h3>
         </div>
         <div className={style.info}>
-        <h3>{'LIFE SPAN:'+life_span}</h3>
+        <h2>LIFE SPAN:</h2>
+        <h3>{life_span}</h3>
         </div>
         <div className={style.info}>
-        <h4>{temperament?.map(e=>{return '-'+ e.toUpperCase()+" "})}</h4>
+        <h2>TEMPERAMENT:</h2>
+        <h3>{temperament?.map(e=>{return '-'+ e.toUpperCase()+" "})}</h3>
         </div>
          </div> 
    </div>

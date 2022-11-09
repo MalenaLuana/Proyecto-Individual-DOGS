@@ -105,7 +105,16 @@ export default function Dogs(){
             <div className={style.filterDiv}>
 
                 <button className={style.btnAll} onClick={e=>handleClick(e)}>Show all</button>
+              
+            <div>
+               <h3>Source:</h3>
+                 <select name="createdBy" onChange={(e)=> handleCreatedBy(e)} >
+                  <option value='all'>Show all</option>
+                  <option value='api'>API</option>
+                  <option value='db'>DATA BASE</option>
 
+              </select>
+            </div>
                <div>
                
                 <h3>Filter by temperaments:</h3>
@@ -143,21 +152,12 @@ export default function Dogs(){
             </div>
 
 
-            <div>
-               <h3>Source:</h3>
-                 <select name="createdBy" onChange={(e)=> handleCreatedBy(e)} >
-                  <option value='all'>Show all</option>
-                  <option value='api'>API</option>
-                  <option value='db'>DATA BASE</option>
-
-              </select>
-            </div>
           
          
           </div>
       <div className={style.pags}>
             <div className={style.paginado}>
-               <Paginado dogs={dogs.length} dogsxPage={dogsxPage} paginado={paginado}></Paginado>
+               <Paginado page={page} dogs={dogs.length} dogsxPage={dogsxPage} paginado={paginado}></Paginado>
             </div>
             <div className={style.dogBlock}>
             <div className={style.dogArea}>
@@ -185,7 +185,12 @@ export default function Dogs(){
             })
           }
          </div>  
-         </div></div>
+         </div>
+         <div className={style.paginado}>
+               <Paginado page={page} dogs={dogs.length} dogsxPage={dogsxPage} paginado={paginado}></Paginado>
+            </div>
+         </div>
+        
         </div>
     </div>
     )

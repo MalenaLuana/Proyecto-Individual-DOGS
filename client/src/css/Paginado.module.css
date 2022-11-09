@@ -2,12 +2,26 @@
     display: inline-flex;
     justify-content: center;
 }
+.actual {
+    background-color: #020202;
+    color: rgb(252, 252, 252);
+    font-family: 'Montserrat', sans-serif;
+    font-weight:400;
+    margin-left: 10px;
+    box-sizing: border-box;
+    width: 32px;
+    height: 32px;
+    padding: 5px;
+    
+    border:solid;
+    border-width: 2px;
+    cursor: pointer;
+}
 .list{
     background-color: #ffffff;
     color: rgb(0, 0, 0);
-
-    font-family: 'Louis George Cafe';
-    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:400;
     margin-left: 10px;
     box-sizing: border-box;
     width: 32px;

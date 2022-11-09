@@ -1,19 +1,20 @@
 .container{
-    width: 600px;
-    height: 200px;
+    width: 500px;
+    height: 150px;
     margin-bottom: 40px;
     margin-left: 20px;
     background-color: rgb(255, 255, 255);
     
     display: flex;
-    font-family: 'Louis George Cafe';
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9pt;
     color: black;
     border: solid;
     box-shadow: 10px 9px 0px -1px rgba(0, 0, 0);
 }
 
 .imagen img{
-    height: 200px;
+    height: 150px;
   
 }
 .info{
@@ -27,7 +28,7 @@
     padding-bottom: 5px; 
     width: 100%;
     color: black;
-    font-size: 14pt;
+    font-size: 11pt;
     font-weight: bold;
     letter-spacing: 1.54px;
     border-bottom: solid;
@@ -45,5 +46,6 @@
     padding-left: 10px ;
 }
 .temperament{
+    margin-top: -6px;
     padding-left: 10px
 }
