@@ -9,7 +9,9 @@ const initialState = {
     dogDetail: [],
     temperaments: [],
     default: [],
-    loading: true
+    loading: true,
+   
+    filterSource:[]
 }
 
 const reducer = (state = initialState, action) => {
@@ -19,6 +21,7 @@ const reducer = (state = initialState, action) => {
         case actions.DOG_DETAIL: return { ...state, dogDetail: action.payload, loading: false }
         case actions.SET_DETAILS: return { ...state, dogDetail: [] }
         case actions.POST_DOGS: return { ...state }
+        
 
         /*
          *dogs data */
@@ -29,7 +32,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 dogs: action.payload,
                 default: action.payload,
-                loading: false
+                filterSource:action.payload,
+                loading: false,
+
+                
+               
             }
         /* 
         *temperaments*/
@@ -45,10 +52,12 @@ const reducer = (state = initialState, action) => {
 
         case actions.FILTER_BY_TEMP:
           
-            let alldog = [...state.default]
+            
+            let alldog = [...state.filterSource]
             let filterDogs = []
 
-            if (action.payload === 'all') return { ...state, dogs:alldog }
+            if (action.payload === 'all') return { ...state, dogs:alldog, filterSource:alldogs}
+            console.log(state.filterSource)
 
             for (var i = 0; i < alldog.length; i++) {
                 let temperaments = alldog[i].temperament
@@ -102,17 +111,19 @@ const reducer = (state = initialState, action) => {
         case actions.CREATED_BY:
             let alldogs = [...state.default]
             let newDogs = []
-            if (action.payload === 'all') return { ...state, dogs: alldogs }
+            if (action.payload === 'all') return { ...state, dogs: alldogs, filterSource:alldogs}
 
             if (action.payload === 'api') {
                 newDogs = alldogs.filter(e => e.createdInDB === false)
+
             } else {
                 newDogs = alldogs.filter(e => e.createdInDB === true)
 
             }
             return {
                 ...state,
-                dogs: newDogs
+                dogs: newDogs,
+                filterSource:newDogs
             }
 
         case actions.SORT_WEIGHT:

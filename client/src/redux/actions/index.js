@@ -13,7 +13,6 @@ export const POST_DOGS ="POST_DOGS"
 
 
 
-
 export const getDogs=() => dispatch =>{
 
     return axios.get('http://localhost:3001/dogs')
@@ -110,3 +109,4 @@ export const postDogs = payload => dispatch =>{
     return axios.post('http://localhost:3001/dogs',payload)
     .then(res=>res)
 }
+

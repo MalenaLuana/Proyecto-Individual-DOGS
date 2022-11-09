@@ -30,7 +30,7 @@ return (
         </div>
         <div className={style.info}>
         <h2>TEMPERAMENT:</h2>
-        <h3>{temperament?.map(e=>{return '-'+ e.toUpperCase()+" "})}</h3>
+        <h3>{temperament?.map(e=>{return  e.toUpperCase()+" "})}</h3>
         </div>
          </div> 
    </div>

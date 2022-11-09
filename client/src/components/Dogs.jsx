@@ -78,6 +78,7 @@ export default function Dogs(){
     const handleCreatedBy=(e)=>{
         e.preventDefault()
         dispatch(actions.createdBy(e.target.value))
+        
         setPage(1)
     }
 
