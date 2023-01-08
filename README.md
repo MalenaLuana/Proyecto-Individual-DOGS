@@ -7,6 +7,6 @@
 ## Vistas del proyecto 
 
 <div align="center">
-<img src="https://i.ibb.co/MBbzYP7/dogs-front.jpg" align="center" style="width: 100%" />
+<img src="https://i.ibb.co/St7LN2K/dogs-front.jpg" align="center" style="width: 100%" />
 </div>  
 
