@@ -20,6 +20,7 @@ export default function Nav({setPage,handleClick}){
        const handleSubmit= (e)=>{
         e.preventDefault()
         dispatch(actions.getByName(name))
+
        setPage(1)
         
       }

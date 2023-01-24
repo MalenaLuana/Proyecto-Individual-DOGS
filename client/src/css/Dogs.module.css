@@ -10,28 +10,28 @@ height: 100vh;
     background-repeat: no-repeat;
 }
 
+.pags{
 
+    display: flex;
+    flex-direction: column;
+
+  
+    width: 100%;
+}
 
 .paginado {
-
     display: flex;
     justify-content: center;
     margin-left: 3rem;
 }
 
-.dogBlock {
-    display: flex;
-    padding: 10px;
-    justify-content: center;
-
-}
 
 .dogArea {
-
     
-    padding-left: 9%;
     display: grid;
     grid-template-columns: auto auto;
+    margin: auto;
+    width: 70%;
 }
 
 .linked {

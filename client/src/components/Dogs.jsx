@@ -187,9 +187,7 @@ export default function Dogs(){
           }
          </div>  
          </div>
-         <div className={style.paginado}>
-               <Paginado page={page} dogs={dogs.length} dogsxPage={dogsxPage} paginado={paginado}></Paginado>
-            </div>
+      
          </div>
         
         </div>
