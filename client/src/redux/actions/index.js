@@ -15,7 +15,7 @@ export const POST_DOGS ="POST_DOGS"
 
 export const getDogs=() => dispatch =>{
 
-    return axios.get('http://localhost:3001/dogs')
+    return axios.get('https://proyecto-individual-dogs-production.up.railway.app/dogs')
     .then(res=>{
       
         dispatch({
@@ -28,7 +28,7 @@ export const getDogs=() => dispatch =>{
 
 export const getByName = (name) => dispatch => {
     try{
-    return axios.get(`http://localhost:3001/dogs?name=${name}`)
+    return axios.get(`https://proyecto-individual-dogs-production.up.railway.app/dogs?name=${name}`)
         .then(res => {
             dispatch({
                 type: "GET_BY_NAME",
@@ -41,7 +41,7 @@ export const getByName = (name) => dispatch => {
 }
 
 export const getTemperaments=()=>dispatch =>{
-return axios.get('http://localhost:3001/temperaments')
+return axios.get('https://proyecto-individual-dogs-production.up.railway.app/temperaments')
 .then(res=>{
     dispatch(
         {type:"GET_TEMPS",
@@ -52,7 +52,7 @@ return axios.get('http://localhost:3001/temperaments')
 
 export const dogDetails=(id)=>dispatch=>{
    
-    return axios.get(`http://localhost:3001/dogs/${id}`)
+    return axios.get(`https://proyecto-individual-dogs-production.up.railway.app/dogs/${id}`)
     .then(res=>{
         dispatch({
             type:'DOG_DETAIL',
@@ -106,7 +106,7 @@ export const sortWeight = payload => {
 //create
 
 export const postDogs = payload => dispatch =>{
-    return axios.post('http://localhost:3001/dogs',payload)
+    return axios.post('https://proyecto-individual-dogs-production.up.railway.app/dogs',payload)
     .then(res=>res)
 }
 
