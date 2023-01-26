@@ -30,7 +30,7 @@ export default function Dogs(){
             dispatch(actions.getTemperaments())
         }
         
-    },[dispatch])
+    },[dispatch,temperaments])
 
     temperaments.sort((a,b)=>{
         if(a.name<b.name){
@@ -43,7 +43,7 @@ export default function Dogs(){
     })
     //--------paginado------------
          const [page,setPage] = useState(1)
-         const [dogsxPage,setDogsxPage] = useState(8)
+         const [dogsxPage] = useState(8)
 
          const lastDog = page * dogsxPage
          const firstDog = lastDog - dogsxPage
@@ -171,7 +171,7 @@ export default function Dogs(){
           <div className={style.error}><img src={image} alt="" /><p >Sorry, we don't have that dog breed </p></div>     
           :actualDogs?.map(e=>{
                 return(
-                    <Fragment>
+                    <Fragment key={e.id}>
                         <Link className={style.linked}  to={"/home/"+e.id}>
                             <DogsCard key={e.id}
                             name={e.name}

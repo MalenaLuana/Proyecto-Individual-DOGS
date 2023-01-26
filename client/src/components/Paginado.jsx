@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import style from '../css/Paginado.module.css'
 
 export default function Paginado ({dogs,dogsxPage,paginado,page}){
@@ -15,7 +15,7 @@ export default function Paginado ({dogs,dogsxPage,paginado,page}){
                     amountPages.map(el=>{
                         return (
                             
-                                <li className={style.cont}>
+                                <li className={style.cont} key={el}>
                                     <button className={el === page? style.actual : style.list} onClick={()=>paginado(el)}>{el}</button>
 
                                 </li>

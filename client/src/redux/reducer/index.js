@@ -56,8 +56,8 @@ const reducer = (state = initialState, action) => {
             let alldog = [...state.filterSource]
             let filterDogs = []
 
-            if (action.payload === 'all') return { ...state, dogs:alldog, filterSource:alldogs}
-            console.log(state.filterSource)
+            if (action.payload === 'all') return { ...state, dogs:alldog, filterSource:alldog}
+       
 
             for (var i = 0; i < alldog.length; i++) {
                 let temperaments = alldog[i].temperament
@@ -71,7 +71,7 @@ const reducer = (state = initialState, action) => {
             if (filterDogs.length === 0) {
                 console.log('dogs not found :( ')
             }
-            console.log('reducer')
+         
 
             return {
                 ...state,

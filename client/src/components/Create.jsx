@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as actions from '../redux/actions'
 import style from '../css/Create.module.css'
@@ -42,7 +41,7 @@ export default function Create() {
         if (temperaments.length === 0) {
             dispatch(actions.getTemperaments())
         }
-    }, [])
+    }, [dispatch,temperaments])
 
 /*----VALIDACIONES----*/
 

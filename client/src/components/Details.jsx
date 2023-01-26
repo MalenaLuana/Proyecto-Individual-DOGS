@@ -20,7 +20,7 @@ export default function Details(props){
         
         dispatch(actions.setDetails([]))
         
-     },[dispatch])
+     },[dispatch,params])
     
 
     return (
