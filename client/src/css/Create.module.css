@@ -220,13 +220,28 @@
     
 }
 .temp select{
+   
+  background-color: transparent;
     border:solid ;
     border-width: 2px;
     border-radius: 4px;
-    height: 30px;
+    height: 100%;
     width: 200px;
+    padding: 5px;
     
 }
+.temp select::-webkit-scrollbar {
+    width: 10px;
+  }
+  .temp select::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  .temp select::-webkit-scrollbar-thumb {
+    background: rgb(0, 0, 0);
+  }
+  .temp select::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 .tempBox{
     background-color: rgb(243, 243, 243);
     display: grid;

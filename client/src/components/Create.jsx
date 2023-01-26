@@ -118,13 +118,13 @@ export default function Create() {
             ...input,
             temperament: input.temperament.filter(el => el !== e.target.value)
         })
-        console.log(e.target.value)
+  
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const names= dogs.map(e=>e.name)
-        console.log(names)
+       
         if(input.name === '' || input.life_span === '' || input.heightMin==='' || input.heightMax ==='' || input.weightMax===''||input.weightMin===''|| input.temperament.length === 0 || input.image ===''){
             alert('All the fields must be completed!')
         }else if(error.name || error.life_span|| error.heightMin|| error.heightMax ||error.heightCompare ||error.weightCompare || error.weightMin  || error.weightMax || error.image || error.life_span){
@@ -214,8 +214,8 @@ export default function Create() {
                 <span className={style.nameErr}> {error.life_span && (<label>{error.life_span}</label>)}<br /> </span>
                 <div className={style.tempDiv}>
                 <div className={style.temp}>
-                    <select name="temperaments" value={input.temperament} onChange={e => handleSelect(e)} >
-                        <option value="select">Select...</option>
+                    <select name="temperaments" value={input.temperament} multiple={true} onChange={e => handleSelect(e)} >
+                       
                         {
                             temperaments && temperaments.map(e => {
                                 return (
@@ -228,7 +228,7 @@ export default function Create() {
 
                 <div className={style.tempBox}>   {input.temperament.map(tempMapeo => {
                     return (
-                        <div>
+                        <div key={tempMapeo}>
                             <span>{tempMapeo}</span><button type="button" value={tempMapeo} onClick={(e) => handleClean(e)}>x</button> <br />
                         </div>
                     )

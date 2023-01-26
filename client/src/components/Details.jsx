@@ -38,7 +38,7 @@ export default function Details(props){
 				):
                 details && details.map(e=>{
                     return (
-                        <DetailCard
+                        <DetailCard key={e.name}
                         name={e.name}
                         img={e.image}
                         temperament={e.temperament}
