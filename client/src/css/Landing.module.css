@@ -11,8 +11,9 @@
  .container{
    
     min-height: 100vh;
-    width: 100%;
     display: flex;
+    width: 100%;
+    overflow :hidden;
     justify-content: center;
     align-items: center;
     position: absolute;
@@ -21,6 +22,7 @@
 .content{
    text-align: center;
 }
+
 
 .content img {
     width: 30%;
