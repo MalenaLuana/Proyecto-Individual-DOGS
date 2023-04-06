@@ -53,7 +53,7 @@ export default function Create() {
             //-----name-------
     let regexName = new RegExp('^[a-zA-Z ]{2,30}$')
 
-    if(input.name.length > 0 && !regexName.test(input.name)) keep.name= 'The name contains invalid characters.'
+    if(input.name.length > 0 && regexName.test(input.name)) keep.name= 'El e-mail ingresado no es valido.'
    
  
            //-----height-------

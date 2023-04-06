@@ -10,7 +10,6 @@ const initialState = {
     temperaments: [],
     default: [],
     loading: true,
-   
     filterSource:[]
 }
 

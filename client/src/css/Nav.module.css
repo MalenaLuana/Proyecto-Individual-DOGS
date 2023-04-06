@@ -1,57 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Krub:wght@300&display=swap');
-.container{
+
+.container {
     background-color: black;
     color: white;
     height: 8vh;
     display: flex;
     box-sizing: border-box;
     position: relative;
+    align-items: center;
     
+
 }
 
 .container h2 {
-    user-select:none;
-    font-family:  'Kathen';
+    user-select: none;
+    font-family: 'Kathen';
     font-size: 25pt;
     position: absolute;
     top: -25px;
     left: 20px;
 }
 
-.links{
-    
-    width: 19%;
+.right {
+    position: absolute;
+    right: 0;
     display: flex;
     justify-content: space-around;
-    box-sizing: border-box;
-    padding-top: 3vh;
-    position: absolute;
-    left: 63%;
+    width: 60%;
+
 }
-.home{
-    color:white;
+.active{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+.links {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menuBtn{
+    background-color: transparent;
+    border: none;
+    display: none;
+  }
+  .menuBtn img{
+    width: 50px;
+    
+  }
+.home {
+    color: white;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     font-size: 10pt;
     text-decoration: none;
     cursor: pointer;
     letter-spacing: 1.5px;
-    margin-right: 10px;
+
 }
 
 .home:hover {
     color: #fa7c55;
 }
 
-.searchBar{
-   position:absolute ;
-   right:30px;
-   top: 1vh;
-   
+.searchBar {
+width: 40%;
 }
-
-.searchInput{
-    height: 36px ;
+.searchBar form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    }
+    
+.searchInput {
+    height: 38px;
+    width: 70%;
     font-family: 'Montserrat', sans-serif;
     font-size: 7pt;
     letter-spacing: 1px;
@@ -59,19 +84,31 @@
     box-sizing: border-box;
     padding-left: 5px;
 }
-.searchBtn{
+
+.searchBtn {
     height: 38px;
     font-family: 'Montserrat', sans-serif;
     font-size: 7pt;
-    font-weight: 400; 
+    font-weight: 400;
     box-sizing: border-box;
-    
+
     background-color: white;
     transition: .2s ease background-color;
 }
-.searchBtn:hover{
-background-color: #fa7c55;
-color:white;
-cursor: pointer;
+
+.searchBtn:hover {
+    background-color: #fa7c55;
+    color: white;
+    cursor: pointer;
 }
 
+
+
+@media screen and (max-width: 767px) {
+    
+    .links .home{
+        display: none;
+    }
+    
+ 
+    }
